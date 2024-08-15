@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Anime Workouts!!</title>
+</head>
+<body>
+    <ul>
+        <li><a href="aniWork.html">Home</a></li>
+        <li>
+            <a href="#">Anime</a>
+            <ul class="dropdown">
+                <li><a href="DBZ.html">DBZ</a></li>
+                <li><a href="Naruto.html">Naruto</a></li>
+                <li><a href="OnePiece.html">One Piece</a></li>
+                <li><a href="bleach.html">Bleach</a></li>
+                <li><a href="demonSlayer.html">Demon Slayer</a></li>
+                <li><a href="JJK.html">Jujutsu Kaisen</a></li>
+                <li><a href="HxH.html">HxH</a></li>
+                <li><a href="myHero.html">MHA</a></li>
+                <li><a href="AOT.html">Attack on Titans</a></li>
+                <li><a href="Baki.html">Baki</a></li>
+                <li><a href="Ippo.html">Ippo</a></li>
+                <li><a href="KurokoBasketball.html">Kuroko Basketball</a></li>
+                <li><a href="BlueLock.html">Blue Lock</a></li>
+                <li><a href="Haikyu.html">Haikyu</a></li>
+                <li><a href="OPM.html">One Punch Man</a></li>
+            </ul>
+        </li>
+    </ul>    
+    </div>
+
+    
+    <div class="container">
+        <div class="spinBtn">Spin</div>
+        <div class="wheel">
+            <div class="Character" style="--i:1; --clr: #db7093">
+                <span>Ichigo</span>
+                <img src="/BLEACH/ichigo.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:2; --clr: #20b2aa">
+                <span>Naruto</span>
+                <img src="/NARUTO/naruto.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:3; --clr: #daa520">
+                <span>Deku</span>
+                <img src="/MYHERO/deku.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:4; --clr: #ff340f">
+                <span>Goku</span>
+                <img src="/DBZ/goku.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:5; --clr: #4169e1">
+                <span>Saitama</span>
+                <img src="/OPM/saitama.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:6; --clr: #3cb371">
+                <span>Luffy</span>
+                <img src="/ONEPIECE/luffy.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:7; --clr: #d63e92">
+                <span>Yuji</span>
+                <img src="/JJK/yuji.png" class="CharacterImage" style="display: none;">
+            </div>
+            <div class="Character" style="--i:8; --clr: #ff7f50">
+                <span>Hashira <br>Training</span>
+                <img src="/DEMONSLAYER/hashira_training.png" class="CharacterImage" style="display: none;">
+            </div>
+        </div>
+        <div class="result">
+            Result: <span id="winner">Spin the wheel!</span>
+            <img id="resultImage" src="" alt="Result Image">
+        </div>
+    </div>
+</body>
+<style>
+
+    
+    body {
+        background-color: rgb(255, 174, 0);
+        padding: 0;
+        margin: 0;
+        font-family: monospace;
+    }
+
+    ul {
+        list-style: none;
+        background: #22438C;
+    }
+
+    ul li{
+        display: inline-block;
+        position: relative;
+    }
+
+    ul li a{
+        display: block;
+        padding: 20px 55px;
+        color: #FFF;
+        text-decoration: none;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    ul li ul.dropdown li{
+        display: block;
+    }
+
+    ul li ul.dropdown{
+        width: 100%;
+        background: #22438C;
+        position: absolute;
+        z-index: 999;
+        display: none;
+    }
+
+    ul li a:hover{
+        background: #112C66;
+    }
+
+    ul li:hover ul.dropdown{
+        display:block;
+    }
+
+    .container {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 350px;
+        margin-left: 1100px;
+    }
+
+    .container .spinBtn {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: bold;
+        color: black;
+        border: 4px solid rgb(0, 0, 0, 0.75);
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .container .spinBtn::before {
+        content: '';
+        position: absolute;
+        top: -28px;
+        width: 20px;
+        height: 30px;
+        background: black;
+        clip-path: polygon(50% 0, 15% 100%, 85% 100%);
+    }
+
+    .container .wheel {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
+        transition: transform 3s ease-in-out;
+    }
+
+    .container .wheel .Character {
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        background: var(--clr);
+        transform-origin: bottom right;
+        transform: rotate(calc(45deg * var(--i)));
+        clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .container .wheel .Character span {
+        position: relative;
+        transform: rotate(45deg);
+        font-size: 20px;
+    }
+
+    .container .result {
+        position: absolute;
+        top: -200px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .container .result #resultImage {
+        margin-top: 10px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .Character .CharacterImage {
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        transform: rotate(45deg);
+    }
+</style>
+
+<script>
+    let wheel = document.querySelector('.wheel');
+    let spinBtn = document.querySelector('.spinBtn');
+    let winner = document.getElementById('winner');
+    let resultImage = document.getElementById('resultImage');
+    let segments = document.querySelectorAll('.wheel .Character');
+    let value = Math.ceil(Math.random() * 3600);
+
+    spinBtn.onclick = function(){
+        value += Math.ceil(Math.random() * 3600);
+        wheel.style.transform = "rotate(" + value + "deg)";
+        setTimeout(() => {
+            const segmentIndex = Math.floor((value % 360)/51.7);
+            let selectedCharacter = segments[segments.length - 1 - segmentIndex];
+            winner.textContent = selectedCharacter.querySelector('span').textContent;
+            resultImage.src = selectedCharacter.querySelector('.CharacterImage').src;
+        }, 3000); // Match the transition duration
+    }
+</script>
+</html>
