@@ -41,45 +41,52 @@
             <div class="Character" style="--i:1; --clr: #db7093">
                 <span hidden>Akainu</span>
                 <img src="/ONEPIECE/Akainu.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/?s=akainu&tcb_sf_post_type%5B%5D=post&tcb_sf_post_type%5B%5D=page"></a>
             </div>
             <div class="Character" style="--i:2; --clr: #20b2aa">
                 <span hidden>Garp</span>
                 <img src="/ONEPIECE/Garp.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2021/05/07/monkey-d-garp-workout/"></a>
             </div>
             <div class="Character" style="--i:3; --clr: #daa520">
                 <span hidden>Oden</span>
                 <img src="/ONEPIECE/Oden.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2022/08/15/kozuki-oden-workout/"></a>
             </div>
             <div class="Character" style="--i:4; --clr: #ff340f">
                 <span hidden>Roger</span>
                 <img src="/ONEPIECE/Roger.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2021/04/06/gol-d-roger-workout/"></a>
             </div>
             <div class="Character" style="--i:5; --clr: #4169e1">
                 <span hidden>Sanji</span>
                 <img src="/ONEPIECE/Sanji.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2021/03/25/sanji-workout/"></a>
             </div>
             <div class="Character" style="--i:6; --clr: #3cb371">
                 <span hidden>Luffy</span>
                 <img src="/ONEPIECE/luffy.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2023/09/13/joy-boy-luffy-workout-train-like-gear-5-luffy/"></a>
             </div>
             <div class="Character" style="--i:7; --clr: #d63e92">
                 <span hidden>Whitebeard</span>
                 <img src="/ONEPIECE/Whitebeard.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2021/02/11/white-beard-workout/"></a>
             </div>
             <div class="Character" style="--i:8; --clr: #ff7f50">
                 <span hidden>Zoro</span>
                 <img src="/ONEPIECE/Zoro.png" class="CharacterImage" style="display: none;">
+                <a class="WorkoutLink" href="https://superherojacked.com/2020/06/25/zoro-workout-one-piece/"></a>
             </div>
         </div>
         <div class="result">
             Result: <span id="winner">Spin the wheel!</span>
-            <img id="resultImage" src="" alt="Result Image">
+            <img id="resultImage" style="display: none;">
+            <a id="Link" href="#" target="_blank" style="display: none;">Click Here</a> 
         </div>
     </div>
 </body>
 <style>
-
-    
     body {
         background-color: rgb(255, 174, 0);
         padding: 0;
@@ -92,12 +99,12 @@
         background: #22438C;
     }
 
-    ul li{
+    ul li {
         display: inline-block;
         position: relative;
     }
 
-    ul li a{
+    ul li a {
         display: block;
         padding: 20px 55px;
         color: #FFF;
@@ -106,11 +113,11 @@
         font-size: 20px;
     }
 
-    ul li ul.dropdown li{
+    ul li ul.dropdown li {
         display: block;
     }
 
-    ul li ul.dropdown{
+    ul li ul.dropdown {
         width: 100%;
         background: #22438C;
         position: absolute;
@@ -118,12 +125,12 @@
         display: none;
     }
 
-    ul li a:hover{
+    ul li a:hover {
         background: #112C66;
     }
 
-    ul li:hover ul.dropdown{
-        display:block;
+    ul li:hover ul.dropdown {
+        display: block;
     }
 
     .container {
@@ -133,7 +140,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 350px;
+        margin-top: 400px;
         margin-left: 500px;
     }
 
@@ -151,7 +158,7 @@
         letter-spacing: 0.1em;
         font-weight: bold;
         color: black;
-        border: 4px solid rgb(0, 0, 0, 0.75);
+        border: 4px solid rgba(0, 0, 0, 0.75);
         cursor: pointer;
         user-select: none;
     }
@@ -183,6 +190,7 @@
         position: absolute;
         width: 50%;
         height: 50%;
+        margin-top: 10px;
         background: var(--clr);
         transform-origin: bottom right;
         transform: rotate(calc(45deg * var(--i)));
@@ -203,8 +211,11 @@
     .container .result {
         position: absolute;
         top: -200px;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 24px;
         text-align: center;
+        z-index: 11;
     }
 
     .container .result #resultImage {
@@ -212,6 +223,11 @@
         width: 100px;
         height: 100px;
         object-fit: cover;
+        display: none;
+        z-index: 11;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .Character .CharacterImage {
@@ -219,6 +235,12 @@
         height: 40px;
         margin-left: 10px;
         transform: rotate(45deg);
+        align-items: center;
+    }
+
+    #Link {
+        margin-top: 10px;
+        color: blue;
     }
 </style>
 
@@ -228,16 +250,25 @@
     let winner = document.getElementById('winner');
     let resultImage = document.getElementById('resultImage');
     let segments = document.querySelectorAll('.wheel .Character');
+    let Link = document.getElementById('Link');
     let value = Math.ceil(Math.random() * 3600);
 
-    spinBtn.onclick = function(){
+    spinBtn.onclick = function() {
+        // Disable the link before the spin
+        Link.style.display = 'none'; // Initially hide the link
+
         value += Math.ceil(Math.random() * 3600);
         wheel.style.transform = "rotate(" + value + "deg)";
         setTimeout(() => {
-            const segmentIndex = Math.floor((value % 360)/51.7);
-            let selectedCharacter = segments[segments.length - 1 - segmentIndex];
+            const segmentIndex = Math.floor((value % 360) / (360 / segments.length));
+            let selectedCharacter = segments[segmentIndex];
             winner.textContent = selectedCharacter.querySelector('span').textContent;
             resultImage.src = selectedCharacter.querySelector('.CharacterImage').src;
+            document.querySelector('#resultImage').style.display = 'block';
+
+            // Display the link and set its href
+            Link.href = selectedCharacter.querySelector('.WorkoutLink').href;
+            Link.style.display = 'block'; // Show the link after the result
         }, 3000); // Match the transition duration
     }
 </script>
