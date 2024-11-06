@@ -24,8 +24,6 @@
                 <li><a href="myHero.html">MHA</a></li>
                 <li><a href="AOT.html">Attack on Titans</a></li>
                 <li><a href="Baki.html">Baki</a></li>
-                <li><a href="Ippo.html">Ippo</a></li>
-                <li><a href="KurokoBasketball.html">Kuroko Basketball</a></li>
                 <li><a href="BlueLock.html">Blue Lock</a></li>
                 <li><a href="Haikyu.html">Haikyu</a></li>
                 <li><a href="OPM.html">One Punch Man</a></li>
@@ -135,114 +133,115 @@
     }
 
     .container {
-        position: relative;
-        width: 400px;
-        height: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 350px;
-        margin-left: 500px;
-    }
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 300px;
+            margin-left: 500px;
+        }
 
-    .container .spinBtn {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        background-color: rgb(255, 255, 255);
-        border-radius: 50%;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-weight: bold;
-        color: black;
-        border: 4px solid rgba(0, 0, 0, 0.75);
-        cursor: pointer;
-        user-select: none;
-    }
+        .container .spinBtn {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            top: 300px; 
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            color: black;
+            border: 4px solid rgba(0, 0, 0, 0.75);
+            cursor: pointer;
+            user-select: none;
+        }
 
-    .container .spinBtn::before {
-        content: '';
-        position: absolute;
-        top: -28px;
-        width: 20px;
-        height: 30px;
-        background: black;
-        clip-path: polygon(50% 0, 15% 100%, 85% 100%);
-    }
+        .container .spinBtn::before {
+            content: '';
+            position: absolute;
+            top: -28px;
+            width: 20px;
+            height: 30px;
+            background: black;
+            clip-path: polygon(50% 0, 15% 100%, 85% 100%);
+        }
 
-    .container .wheel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #333;
-        border-radius: 50%;
-        overflow: hidden;
-        box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
-        transition: transform 3s ease-in-out;
-    }
+        .container .wheel {
+            position: absolute;
+            top: 150px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #333;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
+            transition: transform 3s ease-in-out;
+        }
 
-    .container .wheel .Character {
-        position: absolute;
-        width: 50%;
-        height: 50%;
-        margin-top: 10px;
-        background: var(--clr);
-        transform-origin: bottom right;
-        transform: rotate(calc(45deg * var(--i)));
-        clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        user-select: none;
-        cursor: pointer;
-    }
+        .container .wheel .Character {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background: var(--clr);
+            transform-origin: bottom right;
+            transform: rotate(calc(45deg * var(--i)));
+            clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            cursor: pointer;
+        }
 
-    .container .wheel .Character span {
-        position: relative;
-        transform: rotate(45deg);
-        font-size: 20px;
-    }
+        .container .wheel .Character span {
+            position: relative;
+            transform: rotate(45deg);
+            font-size: 20px;
+        }
 
-    .container .result {
-        position: absolute;
-        top: -200px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 24px;
-        text-align: center;
-        z-index: 11;
-    }
+        .container .result {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            text-align: center;
+            z-index: 11;
+        }
 
-    .container .result #resultImage {
-        margin-top: 10px;
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        display: none;
-        z-index: 11;
-        align-items: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .container .result #resultImage {
+            margin-top: 10px;
+            margin-left: 50px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            display: none;
+            z-index: 11;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .Character .CharacterImage {
-        width: 40px;
-        height: 40px;
-        margin-left: 10px;
-        transform: rotate(45deg);
-        align-items: center;
-    }
+        .Character .CharacterImage {
+            width: 40px;
+            height: 40px;
+            margin-left: 100px;
+            transform: rotate(45deg);
+            align-items: center;
+        }
 
-    #Link {
-        margin-top: 10px;
-        color: blue;
-    }
+        #Link {
+            margin-top: 10px;
+            color: blue;
+        }    
 </style>
 
 <script>
